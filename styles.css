@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-grey: #0a0a23;
+  --white: #ffffff;
+
+  --clock-diameter: 500px;
+  --clock-face-diameter: calc(var(--clock-diameter) - 25px);
+}
+
+body {
+  color: var(--white);
+  background-color: var(--dark-grey);
+}
+
+.clock {
+    margin: auto;
+    margin-top: 25vh;
+    height: var(--clock-diameter);
+    width: var(--clock-diameter);
+    background-color: var(--white);
+    border-radius: 100%;
+}
+
+.clock-face {
+    height: var(--clock-face-diameter);
+    width: var(--clock-face-diameter);
+    border-radius: 100%;
+    position: relative;
+    top: 12.5px;
+    left: 12.5px;
+
+    background-image: conic-gradient(
+        var(--white) 0%,
+        var(--dark-grey) 20%,
+        var(--white) 20%,
+        var(--dark-grey) 75%,
+        var(--white) 75%,
+        var(--dark-grey)
+    );
+}
+
+.hand {
+    position: absolute;
+    height: var(--clock-face-diameter);
+    width: var(--clock-face-diameter);
+    border-radius: 100%;
+}
+
+.hour {
+    transform: rotate(
+        60deg
+    )
+}
+
+/* .minute {
+    background-image: conic-gradient(
+        var(--white) 0%,
+        var(--dark-grey)
+    );
+}
+
+.second {
+    background-image: conic-gradient(
+        var(--white) 0%,
+        var(--dark-grey)
+    );
+} */
