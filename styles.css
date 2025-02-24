@@ -12,6 +12,18 @@
 
   --clock-diameter: 500px;
   --clock-face-diameter: calc(var(--clock-diameter) - 25px);
+
+  --hour-rotate-deg: 279deg;
+  --minute-rotate-deg: 180deg;
+  --second-rotate-deg: 90deg;
+
+  /* --hour-rotate-pc: calc(100 * var(--hour-rotate-deg) / 360);
+  --minute-rotate-pc: calc(100 * var(--minute-rotate-deg) / 360);
+  --second-rotate-pc: calc(100 * var(--second-rotate-deg) / 360); */
+
+  --hour-rotate-pc: 73.611%;
+  --minute-rotate-pc: 50%;
+  --second-rotate-pc: 15%;
 }
 
 body {
@@ -36,28 +48,89 @@ body {
     top: 12.5px;
     left: 12.5px;
 
-    background-image: conic-gradient(
+    /* background-image: conic-gradient(
         var(--white) 0%,
-        var(--dark-grey) 20%,
-        var(--white) 20%,
-        var(--dark-grey) 75%,
-        var(--white) 75%,
+        var(--dark-grey) var(--hour-rotate-pc),
+        var(--white) var(--hour-rotate-pc),
+        var(--dark-grey) var(--minute-rotate-pc),
+        var(--white) var(--minute-rotate-pc),
         var(--dark-grey)
-    );
+    ); */
 }
 
 .hand {
     position: absolute;
-    height: var(--clock-face-diameter);
-    width: var(--clock-face-diameter);
-    border-radius: 100%;
 }
 
 .hour {
+    position: absolute;
+    height: var(--clock-face-diameter);
+    width: var(--clock-face-diameter);
+    border-radius: 100%;
+    position: relative;
+    top: 0;
+
+    background-image: conic-gradient(
+        transparent 0%,
+        var(--dark-grey) var(--hour-rotate-pc),
+        transparent var(--hour-rotate-pc),
+        transparent 100%
+    );
+
     transform: rotate(
-        60deg
-    )
+        var(--hour-rotate-deg)
+    );
 }
+
+.minute {
+    top: 0;
+    position: absolute;
+    height: var(--clock-face-diameter);
+    width: var(--clock-face-diameter);
+    border-radius: 100%;
+
+    background-image: conic-gradient(
+        transparent 0%,
+        var(--dark-grey) var(--minute-rotate-pc),
+        transparent var(--minute-rotate-pc),
+        transparent 100%
+    );
+
+    transform: rotate(
+        var(--minute-rotate-deg)
+    );
+}
+
+.second {
+    top: 0;
+    position: absolute;
+    height: var(--clock-face-diameter);
+    width: var(--clock-face-diameter);
+    border-radius: 100%;
+
+    background-image: conic-gradient(
+        transparent 0%,
+        var(--dark-grey) var(--second-rotate-pc),
+        transparent var(--second-rotate-pc),
+        transparent 100%
+    );
+
+    transform: rotate(
+        var(--second-rotate-deg)
+    );
+}
+
+/* .hour {
+    top: 50%;
+    left: 50%;
+    transform-origin: 0%;
+    transform: rotate(
+        var(--hour-rotate-deg)
+    );
+    height: 5px;
+    width: calc(var(--clock-face-diameter)/2);
+    background-color: red;
+} */
 
 /* .minute {
     background-image: conic-gradient(
