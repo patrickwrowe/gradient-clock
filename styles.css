@@ -15,15 +15,15 @@
 
   --hour-rotate-deg: 279deg;
   --minute-rotate-deg: 180deg;
-  --second-rotate-deg: 90deg;
+  --second-rotate-deg: 95deg;
 
-  /* --hour-rotate-pc: calc(100 * var(--hour-rotate-deg) / 360);
+  --hour-rotate-pc: calc(100 * var(--hour-rotate-deg) / 360);
   --minute-rotate-pc: calc(100 * var(--minute-rotate-deg) / 360);
-  --second-rotate-pc: calc(100 * var(--second-rotate-deg) / 360); */
+  --second-rotate-pc: calc(100 * var(--second-rotate-deg) / 360);
 
-  --hour-rotate-pc: 73.611%;
+  /* --hour-rotate-pc: 73.611%;
   --minute-rotate-pc: 50%;
-  --second-rotate-pc: 15%;
+  --second-rotate-pc: 15%; */
 }
 
 body {
@@ -71,10 +71,9 @@ body {
     top: 0;
 
     background-image: conic-gradient(
-        transparent 0%,
-        var(--dark-grey) var(--hour-rotate-pc),
+        transparent,
         transparent var(--hour-rotate-pc),
-        transparent 100%
+        var(--dark-grey)
     );
 
     transform: rotate(
@@ -89,11 +88,17 @@ body {
     width: var(--clock-face-diameter);
     border-radius: 100%;
 
-    background-image: conic-gradient(
+    /* background-image: conic-gradient(
         transparent 0%,
         var(--dark-grey) var(--minute-rotate-pc),
         transparent var(--minute-rotate-pc),
         transparent 100%
+    ); */
+
+    background-image: conic-gradient(
+        transparent,
+        transparent var(--minute-rotate-pc),
+        var(--dark-grey)
     );
 
     transform: rotate(
@@ -108,11 +113,17 @@ body {
     width: var(--clock-face-diameter);
     border-radius: 100%;
 
-    background-image: conic-gradient(
+    /* background-image: conic-gradient(
         transparent 0%,
         var(--dark-grey) var(--second-rotate-pc),
         transparent var(--second-rotate-pc),
         transparent 100%
+    ); */
+
+    background-image: conic-gradient(
+        transparent,
+        transparent var(--second-rotate-pc),
+        var(--dark-grey)
     );
 
     transform: rotate(
