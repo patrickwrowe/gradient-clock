@@ -2,17 +2,45 @@ const hourHand = document.getElementById('hour-hand');
 const minuteHand = document.getElementById('minute-hand');
 const secondHand = document.getElementById('second-hand');
 
-function rotateHands() {
+function getTime() {
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
-    const hourDegrees = hours * 30 + minutes * 0.5;
-    const minuteDegrees = minutes * 6;
-    const secondDegrees = seconds * 6;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-    minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
-    secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+
+    return [hours, minutes, seconds]
+}
+
+const hoursToDegrees = (hours, minutes) => {
+    return hours * 30 + minutes * 0.5
+}
+
+const minutesOrSecondsToDegrees = (minutesOrSeconds) => {
+    return minutesOrSeconds * 6
+}
+
+function acceleratedConvertTimeToAngle(timeWarp, hours, minutes, seconds) {
+    const hoursDegrees = timeWarp * hoursToDegrees(hours, minutes);
+    const minutesDegrees = timeWarp * minutesOrSecondsToDegrees(minutes);
+    const secondsDegrees = timeWarp * minutesOrSecondsToDegrees(seconds);
+
+    return [hoursDegrees, minutesDegrees, secondsDegrees]
+}
+
+function convertTimeToAngle(hours, minutes, seconds) {
+    const hoursDegrees = hoursToDegrees(hours, minutes);
+    const minutesDegrees = minutesOrSecondsToDegrees(minutes);
+    const secondsDegrees = minutesOrSecondsToDegrees(seconds);
+
+    return [hoursDegrees, minutesDegrees, secondsDegrees]
+}
+
+function rotateHands() {
+    const [hours, minutes, seconds] = getTime();
+    const [hoursDegrees, minutesDegrees, secondsDegrees] = convertTimeToAngle(hours, minutes, seconds);
+    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
     }
 
 setInterval(rotateHands, 500);
