@@ -14,19 +14,18 @@
   --clock-face-diameter: calc(var(--clock-diameter) - 25px);
   --clock-face-radius: calc(var(--clock-face-diameter) / 2);
 
+
+  /* Not needed now that there's JS */
   --hour-rotate-deg: 279deg;
   --minute-rotate-deg: 170deg;
   --second-rotate-deg: 95deg;
 
+  /* Not needed now that there's JS */
   --hour-rotate-pc: calc(100 * var(--hour-rotate-deg) / 360);
   --minute-rotate-pc: calc(100 * var(--minute-rotate-deg) / 360);
   --second-rotate-pc: calc(100 * var(--second-rotate-deg) / 360);
 
   --minute-hand-width: 3px;
-
-  /* --hour-rotate-pc: 73.611%;
-  --minute-rotate-pc: 50%;
-  --second-rotate-pc: 15%; */
 }
 
 body {
@@ -65,9 +64,9 @@ body {
     top: 0;
 
     background-image: conic-gradient(
-        transparent,
-        transparent var(--hour-rotate-pc),
-        var(--dark-grey)
+        blue,
+        blue var(--hour-rotate-pc),
+        white
     );
 
     transform: rotate(
@@ -76,7 +75,7 @@ body {
 }
 
 /* for minute as a hand */
-.minute {
+/* .minute {
     top: 0;
     left: 50%;
     position: absolute;
@@ -90,7 +89,7 @@ body {
     transform: rotate(  
         var(--minute-rotate-deg)
     );
-}
+} */
 
 /* for second as a hand */
 .second {
@@ -110,9 +109,7 @@ body {
 }
 
 /* for minute as a gradient of its own */
-/* .minute {
-    
-
+.minute {
     top: 0;
     position: absolute;
     height: var(--clock-face-diameter);
@@ -121,14 +118,15 @@ body {
 
     background-image: conic-gradient(
         transparent,
-        transparent var(--minute-rotate-pc),
-        var(--dark-grey)
+        transparent var(--minute-rotate-pc) 95%,
+        blue
     );
+
 
     transform: rotate(
         var(--minute-rotate-deg)
     );
-} */
+}
 
 /* for second as a gradient of its own */
 /* .second {

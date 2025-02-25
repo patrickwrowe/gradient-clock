@@ -19,14 +19,6 @@ const minutesOrSecondsToDegrees = (minutesOrSeconds) => {
     return minutesOrSeconds * 6
 }
 
-function acceleratedConvertTimeToAngle(timeWarp, hours, minutes, seconds) {
-    const hoursDegrees = timeWarp * hoursToDegrees(hours, minutes);
-    const minutesDegrees = timeWarp * minutesOrSecondsToDegrees(minutes);
-    const secondsDegrees = timeWarp * minutesOrSecondsToDegrees(seconds);
-
-    return [hoursDegrees, minutesDegrees, secondsDegrees]
-}
-
 function convertTimeToAngle(hours, minutes, seconds) {
     const hoursDegrees = hoursToDegrees(hours, minutes);
     const minutesDegrees = minutesOrSecondsToDegrees(minutes);
