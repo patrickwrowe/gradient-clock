@@ -12,14 +12,17 @@
 
   --clock-diameter: 500px;
   --clock-face-diameter: calc(var(--clock-diameter) - 25px);
+  --clock-face-radius: calc(var(--clock-face-diameter) / 2);
 
   --hour-rotate-deg: 279deg;
-  --minute-rotate-deg: 180deg;
+  --minute-rotate-deg: 170deg;
   --second-rotate-deg: 95deg;
 
   --hour-rotate-pc: calc(100 * var(--hour-rotate-deg) / 360);
   --minute-rotate-pc: calc(100 * var(--minute-rotate-deg) / 360);
   --second-rotate-pc: calc(100 * var(--second-rotate-deg) / 360);
+
+  --minute-hand-width: 3px;
 
   /* --hour-rotate-pc: 73.611%;
   --minute-rotate-pc: 50%;
@@ -47,15 +50,6 @@ body {
     position: relative;
     top: 12.5px;
     left: 12.5px;
-
-    /* background-image: conic-gradient(
-        var(--white) 0%,
-        var(--dark-grey) var(--hour-rotate-pc),
-        var(--white) var(--hour-rotate-pc),
-        var(--dark-grey) var(--minute-rotate-pc),
-        var(--white) var(--minute-rotate-pc),
-        var(--dark-grey)
-    ); */
 }
 
 .hand {
@@ -81,19 +75,49 @@ body {
     );
 }
 
+/* for minute as a hand */
 .minute {
+    top: 0;
+    left: 50%;
+    position: absolute;
+    height: var(--clock-face-radius);
+    width: 3px;
+    border-radius: 2px;
+
+    background-color: var(--dark-grey);
+
+    transform-origin: bottom;
+    transform: rotate(  
+        var(--minute-rotate-deg)
+    );
+}
+
+/* for second as a hand */
+.second {
+    top: 0;
+    left: 50%;
+    position: absolute;
+    height: var(--clock-face-radius);
+    width: 1px;
+    border-radius: 1px;
+
+    background-color: red;
+
+    transform-origin: bottom;
+    transform: rotate(  
+        var(--second-rotate-deg)
+    );
+}
+
+/* for minute as a gradient of its own */
+/* .minute {
+    
+
     top: 0;
     position: absolute;
     height: var(--clock-face-diameter);
     width: var(--clock-face-diameter);
     border-radius: 100%;
-
-    /* background-image: conic-gradient(
-        transparent 0%,
-        var(--dark-grey) var(--minute-rotate-pc),
-        transparent var(--minute-rotate-pc),
-        transparent 100%
-    ); */
 
     background-image: conic-gradient(
         transparent,
@@ -104,21 +128,15 @@ body {
     transform: rotate(
         var(--minute-rotate-deg)
     );
-}
+} */
 
-.second {
+/* for second as a gradient of its own */
+/* .second {
     top: 0;
     position: absolute;
     height: var(--clock-face-diameter);
     width: var(--clock-face-diameter);
     border-radius: 100%;
-
-    /* background-image: conic-gradient(
-        transparent 0%,
-        var(--dark-grey) var(--second-rotate-pc),
-        transparent var(--second-rotate-pc),
-        transparent 100%
-    ); */
 
     background-image: conic-gradient(
         transparent,
@@ -129,7 +147,7 @@ body {
     transform: rotate(
         var(--second-rotate-deg)
     );
-}
+} */
 
 /* .hour {
     top: 50%;
