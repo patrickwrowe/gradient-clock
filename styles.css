@@ -253,9 +253,10 @@ body {
 .button-container {
     margin: 10px;
     display: grid;
-    width: 500px;
+    width: 1000px;
     height: 110px;
-    grid-template-columns: 200px 500px; 
+    grid-template-columns: 200px 1000px; 
+    overflow-x: scroll;
 }
 
 .button-grp button {
