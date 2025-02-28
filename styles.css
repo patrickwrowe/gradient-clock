@@ -53,9 +53,7 @@ body {
 
 .welcome-message {
     position: absolute;
-    top: 25%;
-    left: 40%;
-    transform: translate(-50%, -50%);
+    margin: auto;
     font-size: 2rem;
     color: var(--white);
     z-index: 100;
@@ -246,6 +244,7 @@ body {
 
 .controls-container {
     margin: 5px;
+    overflow-x: scroll;
 }
 
 .slider-container {
