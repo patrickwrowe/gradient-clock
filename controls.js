@@ -34,14 +34,22 @@ const handColourGrps = [
     minuteHandcolour2Grp
 ];
 
+const controlsButton = document.getElementById("controls-button-container");
+controlsButton.addEventListener("click", toggleControls);
+
+function toggleControls() {
+    console.log("toggle controls");
+    const controls = document.getElementById("controls");
+    controls.classList.toggle("hidden");
+}
 
 /* set up colour buttons */
 handColourGrps.forEach(hand => {
     colours.forEach(colour => {
-        id = `${hand.id}-${colour}`
+        const id = `${hand.id}-${colour}`
         console.log(hand.id);
         hand.innerHTML += `
-            <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}')">${colour}</button>    
+            <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}', '${id}')">${colour}</button>    
         `
 
         document.getElementById(id).style.backgroundColor = colour;
@@ -50,7 +58,7 @@ handColourGrps.forEach(hand => {
 
 
 /* change colours by clicking on buttons */
-function setHandColours (hand, colour) {
+function setHandColours (hand, colour, btnId) {
     switch (hand) {
         case "hour-hand-colour-1":
             hourHandColour1 = colour;
@@ -65,6 +73,15 @@ function setHandColours (hand, colour) {
             minuteHandColour2 = colour;
             break;
     }
+
+    // Remove 'btn-selected' class from all buttons
+    document.querySelectorAll('.colour-button').forEach(button => {
+        button.classList.remove('btn-selected');
+    });
+
+    const btn = document.getElementById(btnId);
+    btn.classList.add("btn-selected");
+
 
     updateClockGradients();
 }
@@ -86,8 +103,6 @@ function updateClockGradients () {
     `
 }
 
-
-
 const minuteHandExtentSlider = document.getElementById("minute-extent-slider");   
 const hourHandExtentSlider = document.getElementById("hour-extent-slider");
 
@@ -100,3 +115,5 @@ function updateExtents () {
 
     updateClockGradients();
 }
+
+updateClockGradients ()

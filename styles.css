@@ -51,6 +51,38 @@ body {
     overflow: hidden;
 }
 
+.welcome-message {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: var(--white);
+    z-index: 100;
+
+    backdrop-filter: blur(20px);
+    border-radius: 5px;
+    padding: 10px;
+
+    /* fade out after 5 seconds */
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .clock {
     height: var(--clock-diameter);
     width: var(--clock-diameter);
@@ -218,7 +250,7 @@ body {
 
 .slider-container {
     margin: 10px;
-    width: 500px
+    width: 500px;
 }
 
 /* The slider itself */
@@ -259,7 +291,7 @@ body {
     display: grid;
     width: 1000px;
     height: 110px;
-    grid-template-columns: 200px 1000px; 
+    grid-template-columns: 500px 500px; 
     overflow-x: scroll;
 }
 
@@ -273,6 +305,7 @@ body {
     background-color: transparent;
     border-radius: 2px;
     margin: 5px;
+    transition: 0.5s;
   }
   
   /* Clear floats (clearfix hack) */
@@ -288,3 +321,23 @@ body {
     transition: 0.5s;
 }
 
+.btn-selected {
+    transform: scale(0.8) !important;
+    transition: 0.5s;
+}
+
+.hidden {
+    display: none;
+}
+
+.controls-button-container {
+    height: 70vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

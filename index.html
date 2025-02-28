@@ -9,6 +9,10 @@
     </head>
     <body>
         <div class="container">
+            <div class="welcome-message">
+                <h1>Gradient Clock</h1>
+                <h2>Click on the clock to show controls</h2>
+            </div>
             <div class="clock">
                 <div class="clock-face">
                     <div id="hour-hand" class="hour hand"></div>
@@ -16,7 +20,7 @@
                     <div id="second-hand" class="second hand"></div>
                 </div>
             </div>
-            <div class="controls">
+            <div class="controls hidden" id="controls">
                 <div class="controls-container">
                     <div class="slider-container">
                         <label for="hour-extent-slider">Hour Extent</label>
@@ -25,20 +29,27 @@
                         <input type="range" min="1" max="100" value="50" class="slider" id="minute-extent-slider">
                     </div>
                     <div class="button-container">
-                        <label for="hour-hand-colour-1">Hour Hand colour 1</label>
-                        <div class="button-grp" id="hour-hand-colour-1">   
+                        <div>
+                            <label for="hour-hand-colour-1">Hour Hand colour 1</label>
+                            <div class="button-grp" id="hour-hand-colour-1">   
+                            </div>
+                            <label for="hour-hand-colour-2">Hour Hand colour 2</label>
+                            <div class="button-grp" id="hour-hand-colour-2">   
+                            </div>
                         </div>
-                        <label for="hour-hand-colour-2">Hour Hand colour 2</label>
-                        <div class="button-grp" id="hour-hand-colour-2">   
-                        </div>
-                        <label for="minute-hand-colour-1">Minute Hand colour 1</label>
-                        <div class="button-grp" id="minute-hand-colour-1">   
-                        </div>
-                        <label for="minute-hand-colour-2">Minute Hand colour 2</label>
-                        <div class="button-grp" id="minute-hand-colour-2">   
+                        <div>
+                            <label for="minute-hand-colour-1">Minute Hand colour 1</label>
+                            <div class="button-grp" id="minute-hand-colour-1">   
+                            </div>
+                            <label for="minute-hand-colour-2">Minute Hand colour 2</label>
+                            <div class="button-grp" id="minute-hand-colour-2">   
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="controls-button-container" id="controls-button-container">
+            </div>
             </div>
         </div>
 
