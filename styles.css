@@ -27,13 +27,13 @@
 
   --minute-hand-width: 3px;
 
-  /* --hour-hand-color-1: 
-  --hour-hand-color-2:
-  --hour-hand-extent:
+  --hour-hand-color-1: var(--dark-grey);
+  --hour-hand-color-2: transparent;
+  --hour-hand-extent: 100%;
 
-  --minute-hand-color-1: 
-  --minute-hand-color-2:
-  --minute-hand-extent: */
+  --minute-hand-color-1: var(--dark-grey);
+  --minute-hand-color-2: transparent;
+  --minute-hand-extent: 20%;
 }
 
 body {
@@ -79,9 +79,9 @@ body {
     top: 0;
 
     background-image: conic-gradient(
-        blue,
-        blue var(--hour-rotate-pc),
-        white
+        var(--hour-hand-color-1),
+        var(--hour-hand-color-2) var(--hour-hand-extent),
+        var(--hour-hand-color-2)
     );
 
     transform: rotate(
@@ -139,9 +139,9 @@ body {
     border-radius: 100%;
 
     background-image: conic-gradient(
-        transparent,
-        transparent var(--minute-rotate-pc) 95%,
-        blue
+        var(--minute-hand-color-1),
+        var(--minute-hand-color-2) var(--minute-hand-extent),
+        var(--minute-hand-color-2)
     );
 
 
