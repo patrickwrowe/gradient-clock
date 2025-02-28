@@ -35,16 +35,17 @@ buttons = [];
 handColourGrps.forEach(hand => {
     colours.forEach(colour => {
         id = `${hand.id}-${colour}`
+        console.log(hand.id);
         hand.innerHTML += `
-            <button class="colour-button" id="${id}" onclick=setHandColours("${colour}")>${colour}</button>    
+            <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}')">${colour}</button>    
         `
-        console.log(hand.id)
     })
 });
 
 
-function setHandColours (colour) {
+function setHandColours (hand, colour) {
     console.log("firing");
+    console.log(hand);
     console.log(colour);
 }
 
