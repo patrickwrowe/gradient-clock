@@ -16,9 +16,9 @@
 
 
   /* Not needed now that there's JS */
-  --hour-rotate-deg: 279deg;
-  --minute-rotate-deg: 170deg;
-  --second-rotate-deg: 95deg;
+  --hour-rotate-deg: 0deg;
+  --minute-rotate-deg: 0deg;
+  --second-rotate-deg: 0deg;
 
   /* Not needed now that there's JS */
   --hour-rotate-pc: calc(100 * var(--hour-rotate-deg) / 360);
@@ -26,6 +26,14 @@
   --second-rotate-pc: calc(100 * var(--second-rotate-deg) / 360);
 
   --minute-hand-width: 3px;
+
+  /* --hour-hand-color-1: 
+  --hour-hand-color-2:
+  --hour-hand-extent:
+
+  --minute-hand-color-1: 
+  --minute-hand-color-2:
+  --minute-hand-extent: */
 }
 
 body {
@@ -79,6 +87,9 @@ body {
     transform: rotate(
         var(--hour-rotate-deg)
     );
+
+    transition: ease-in-out;
+    transition-duration: 1s;
 }
 
 /* for minute as a hand */
@@ -107,12 +118,16 @@ body {
     width: 1px;
     border-radius: 1px;
 
-    background-color: red;
-
+    background-color: #0a0a23;
     transform-origin: bottom;
     transform: rotate(  
         var(--second-rotate-deg)
     );
+
+    border: 0;
+
+    transition: ease-in-out;
+    transition-duration: 1s;
 }
 
 /* for minute as a gradient of its own */
@@ -133,6 +148,9 @@ body {
     transform: rotate(
         var(--minute-rotate-deg)
     );
+
+    transition: ease-in-out;
+    transition-duration: 1s;
 }
 
 /* for second as a gradient of its own */
@@ -179,3 +197,12 @@ body {
         var(--dark-grey)
     );
 } */
+
+.controls {
+    position: absolute;
+    height: 25vh;
+    width: 100vw;
+    bottom: 0;
+    backdrop-filter: blur(200px);
+    border-radius: 5px 5px 0 0;
+}
