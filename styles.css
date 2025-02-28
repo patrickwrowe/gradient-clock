@@ -206,6 +206,10 @@ body {
     bottom: 0;
     backdrop-filter: blur(200px);
     border-radius: 5px 5px 0 0;
+    overflow: hidden;
+
+    /* make it slightly darker */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .controls-container {
@@ -267,6 +271,8 @@ body {
     float: left; /* Float the buttons side by side */
     border: 0;
     background-color: transparent;
+    border-radius: 2px;
+    margin: 5px;
   }
   
   /* Clear floats (clearfix hack) */
@@ -278,7 +284,7 @@ body {
   
   /* Add a background color on hover */
 .button-grp button:hover {
-    background-color: var(--dark-grey);
-    color: white;
-
+    transform: scale(1.05);
+    transition: 0.5s;
 }
+
