@@ -142,6 +142,7 @@ body {
 
 /* for second as a hand */
 .second {
+    visibility: hidden;
     top: 0;
     left: 50%;
     position: absolute;

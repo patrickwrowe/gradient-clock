@@ -25,7 +25,7 @@ let hourHandColour2 = colours[0];
 let hourHandExtent = 100;
 let minuteHandColour1 = colours[1];
 let minuteHandColour2 = colours[0];
-let minuteHandExtent = 20;
+let minuteHandExtent = 5;
 
 const handColourGrps = [
     hourHandColour1Grp, 
