@@ -105,6 +105,7 @@ function updateClockGradients () {
     `
 }
 
+/* Extents */
 const minuteHandExtentSlider = document.getElementById("minute-extent-slider");   
 const hourHandExtentSlider = document.getElementById("hour-extent-slider");
 
@@ -116,6 +117,19 @@ function updateExtents () {
     minuteHandExtent = minuteHandExtentSlider.value;
 
     updateClockGradients();
+}
+
+/* Color Blend Mode */ 
+
+const blendModeSelect = document.getElementById("color-blend-mode");
+blendModeSelect.addEventListener("change", updateBlendMode);
+
+function updateBlendMode () {
+    const blendMode = blendModeSelect.value;
+
+    minuteHand.style.mixBlendMode = blendMode;
+
+    console.log(blendMode);
 }
 
 updateClockGradients ()

@@ -1,3 +1,5 @@
+/* Author: Patrick Rowe */
+
 *,
 *::before,
 *::after {
@@ -183,6 +185,8 @@ body {
 
     transition: ease-in-out;
     transition-duration: 1s;
+
+    mix-blend-mode: normal;
 }
 
 /* for second as a gradient of its own */
@@ -340,4 +344,6 @@ body {
     &:hover {
         cursor: pointer;
     }
+
+    margin: 10px;
 }
