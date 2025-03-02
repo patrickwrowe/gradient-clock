@@ -24,10 +24,10 @@ const colours = [
 
 let hourHandColour1 = colours[1];
 let hourHandColour2 = colours[0];
-let hourHandExtent = 100;
+let hourHandExtent = 1;
 let minuteHandColour1 = colours[1];
 let minuteHandColour2 = colours[0];
-let minuteHandExtent = 5;
+let minuteHandExtent = 1;
 
 const handColourGrps = [
     hourHandColour1Grp, 
@@ -92,14 +92,12 @@ function setHandColours (hand, colour, btnId) {
 function updateClockGradients () {
 
     hourHand.style.backgroundImage = `conic-gradient(
-        ${hourHandColour1},
-        ${hourHandColour2} ${hourHandExtent}%,
+        ${hourHandColour1} ${hourHandExtent}%,
         ${hourHandColour2}
     )
     `
     minuteHand.style.backgroundImage = `conic-gradient(
-        ${minuteHandColour1},
-        ${minuteHandColour2} ${minuteHandExtent}%,
+        ${minuteHandColour1} ${minuteHandExtent}%,
         ${minuteHandColour2}
     )
     `
