@@ -1,5 +1,10 @@
 # Gradient Clock
 
+<img width="500" alt="Screenshot 2025-03-02 at 12 09 12" src="https://github.com/user-attachments/assets/d8a2dbb6-2e95-4b88-a90a-7cae904da7c2" />
+Gradient clock, with custom colours, at 12:09 pm. 
+
+
+
 ## Overview
 
 Gradient Clock is a visually appealing clock that displays the current time with gradient-colored hands. The clock allows users to customize the colors and gradients of the hour and minute hands, providing a unique and personalized experience.
