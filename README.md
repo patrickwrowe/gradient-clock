@@ -1,9 +1,8 @@
 # Gradient Clock
 
-<img width="500" alt="Screenshot 2025-03-02 at 12 09 12" src="https://github.com/user-attachments/assets/d8a2dbb6-2e95-4b88-a90a-7cae904da7c2" />
+<img width="350" alt="Screenshot 2025-03-02 at 12 09 12" src="https://github.com/user-attachments/assets/d8a2dbb6-2e95-4b88-a90a-7cae904da7c2" />
+
 Gradient clock, with custom colours, at 12:09 pm. 
-
-
 
 ## Overview
 
