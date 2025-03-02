@@ -1,3 +1,5 @@
+// Author: Patrick Rowe
+
 const hourHandColour1Grp = document.getElementById("hour-hand-colour-1");
 const hourHandColour2Grp = document.getElementById("hour-hand-colour-2");
 const minuteHandcolour1Grp = document.getElementById("minute-hand-colour-1");
