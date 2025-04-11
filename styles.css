@@ -56,16 +56,24 @@ body {
 .welcome-message {
     position: absolute;
     margin: auto;
-    font-size: 2rem;
+    font-size: 1rem;
     color: var(--white);
     z-index: 100;
+    padding-bottom: 25em;
+    text-align: center;
 
+    /* 
     backdrop-filter: blur(20px);
     border-radius: 5px;
     padding: 10px;
+    /*
 
     /* fade out after 5 seconds */
     animation: fadeOut 5s forwards;
+}
+
+.title-text {
+    padding-bottom: 1rem;
 }
 
 @keyframes fadeOut {
