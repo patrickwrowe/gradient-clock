@@ -1,14 +1,13 @@
+/* Author: Patrick Rowe */
+
 .controls {
     position: absolute;
-    height: 250px;
-    width: 100vw;
-    bottom: 0;
+    height: 100vh;
+    width: 250px;
+    left: 0;
     backdrop-filter: blur(200px);
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-
-    /* make it slightly darker */
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .controls-container {
