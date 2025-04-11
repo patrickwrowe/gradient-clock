@@ -22,12 +22,23 @@ const colours = [
     "#cf2d7b",
 ]
 
-let hourHandColour1 = colours[1];
-let hourHandColour2 = colours[0];
-let hourHandExtent = 1;
-let minuteHandColour1 = colours[1];
-let minuteHandColour2 = colours[0];
-let minuteHandExtent = 1;
+/* Hand Definitions */
+let hourHandColour1
+let hourHandColour2
+let hourHandExtent
+let minuteHandColour1
+let minuteHandColour2
+let minuteHandExtent
+
+/* Defaults */ 
+let clockStyleDefaults = {
+    hourHandColour1: colours[1],
+    hourHandColour2: colours[0],
+    minuteHandColour1: colours[1],
+    minuteHandColour2: colours[0],
+    hourHandExtent: 1,
+    minuteHandExtent: 1,
+}
 
 const handColourGrps = [
     hourHandColour1Grp, 
@@ -36,6 +47,7 @@ const handColourGrps = [
     minuteHandcolour2Grp
 ];
 
+/* Opening and closing of controls */
 const controlsButton = document.getElementById("controls-button-container");
 controlsButton.addEventListener("click", toggleControls);
 
@@ -43,7 +55,36 @@ function toggleControls() {
     console.log("toggle controls");
     const controls = document.getElementById("controls");
     controls.classList.toggle("hidden");
+    controlsButton.classList.toggle("hidden");
+
 }
+
+const closeControlsButton = document.getElementById("close-controls");
+closeControlsButton.addEventListener("click", toggleControls);
+
+
+/* Reset controls */
+
+const resetControls = () => {
+    console.log("reset controls");
+    hourHandColour1 = clockStyleDefaults.hourHandColour1;
+    hourHandColour2 = clockStyleDefaults.hourHandColour2;
+    minuteHandColour1 = clockStyleDefaults.minuteHandColour1;
+    minuteHandColour2 = clockStyleDefaults.minuteHandColour2;
+    hourHandExtent = clockStyleDefaults.hourHandExtent;
+    minuteHandExtent = clockStyleDefaults.minuteHandExtent;
+
+
+    hourHandExtentSlider.value = hourHandExtent;
+    minuteHandExtentSlider.value = minuteHandExtent;
+
+    updateClockGradients();
+}
+
+const resetControlsButton = document.getElementById("reset-controls");
+resetControlsButton.addEventListener("click", resetControls);
+
+
 
 /* set up colour buttons */
 handColourGrps.forEach(hand => {
@@ -51,7 +92,7 @@ handColourGrps.forEach(hand => {
         const id = `${hand.id}-${colour}`
         console.log(hand.id);
         hand.innerHTML += `
-            <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}', '${id}')">${colour}</button>    
+            <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}', '${id}')"></button>    
         `
 
         document.getElementById(id).style.backgroundColor = colour;
@@ -76,10 +117,12 @@ function setHandColours (hand, colour, btnId) {
             break;
     }
 
-    // Remove 'btn-selected' class from all buttons
-    document.querySelectorAll('.colour-button').forEach(button => {
-        button.classList.remove('btn-selected');
-    });
+    // Remove 'btn-selected' class from hand colour buttons 
+    const handColourButtons = document.querySelectorAll(`#${hand} .colour-button`);
+    handColourButtons.forEach(button => {
+        button.classList.remove("btn-selected");
+    }
+    )
 
     const btn = document.getElementById(btnId);
     btn.classList.add("btn-selected");
@@ -130,4 +173,6 @@ function updateBlendMode () {
     console.log(blendMode);
 }
 
-updateClockGradients ()
+/* Initialisation */
+resetControls()
+updateClockGradients()
