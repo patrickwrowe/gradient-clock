@@ -34,25 +34,10 @@
                         <label for="minute-extent-slider">Minute Extent</label>
                         <input type="range" min="1" max="100" value="50" class="slider" id="minute-extent-slider">
                     </div>
-                    <label for="color-blend-mode">Color Blend Mode</label>
-                    <select id="color-blend-mode">
-                        <option value="normal">Normal</option>
-                        <option value="multiply">Multiply</option>
-                        <option value="screen">Screen</option>
-                        <option value="overlay">Overlay</option>
-                        <option value="darken">Darken</option>
-                        <option value="lighten">Lighten</option>
-                        <option value="color-dodge">Color Dodge</option>
-                        <option value="color-burn">Color Burn</option>
-                        <option value="hard-light">Hard Light</option>
-                        <!-- <option value="soft-light">Soft Light</option> -->
-                        <option value="difference">Difference</option>
-                        <!-- <option value="exclusion">Exclusion</option> -->
-                        <option value="hue">Hue</option>
-                        <option value="saturation">Saturation</option>
-                        <option value="color">Color</option>
-                        <option value="luminosity">Luminosity</option>
-                    </select>
+                    <div class="button-container">
+                        <label for="color-blend-mode">Color Blend Mode</label>
+                        <div class="button-grp" id="color-blend-mode"></div>
+                    </div>
                     <div class="button-container">
                         <div>
                             <label for="hour-hand-colour-1">Hour Hand colour 1</label>
@@ -82,7 +67,7 @@
             </div>
         </div>
 
-        <script src="clock.js"></script>
-        <script src="controls.js"></script>
+        <script src="clock.js" type="module"></script>
+        <script src="controls.js" type="module"></script>
     </body>
 </html>

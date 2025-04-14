@@ -112,9 +112,8 @@ body {
 }
 
 .hour {
-    position: absolute;
-    height: var(--clock-face-diameter);
-    width: var(--clock-face-diameter);
+    height: inherit;
+    width: inherit;
     border-radius: 100%;
     position: relative;
     top: 0;
@@ -176,8 +175,8 @@ body {
 .minute {
     top: 0;
     position: absolute;
-    height: var(--clock-face-diameter);
-    width: var(--clock-face-diameter);
+    height: inherit;
+    width: inherit;
     border-radius: 100%;
 
     background-image: conic-gradient(

@@ -1,12 +1,15 @@
 // Author: Patrick Rowe
 
+// Already declared in clock.js
+// const hourHand = document.getElementById("hour-hand");
+// const minuteHand = document.getElementById("minute-hand");
+
+import { hourHand, minuteHand } from "./clock.js";
+
 const hourHandColour1Grp = document.getElementById("hour-hand-colour-1");
 const hourHandColour2Grp = document.getElementById("hour-hand-colour-2");
 const minuteHandcolour1Grp = document.getElementById("minute-hand-colour-1");
 const minuteHandcolour2Grp = document.getElementById("minute-hand-colour-2");
-
-let HourHand = document.getElementById("hour-hand");
-let MinuteHand = document.getElementById("minute-hand");
 
 
 /* Colour Definitions */
@@ -20,15 +23,34 @@ const colours = [
     "#a83250",
     "#cfa12d",
     "#cf2d7b",
-]
+];
+
+const colorBlendModes = [
+    "normal",
+    "multiply",
+    "screen",
+    "overlay",
+    "darken",
+    "lighten",
+    "color-dodge",
+    "color-burn",
+    "hard-light",
+    // "soft-light",
+    "difference",
+    // "exclusion",
+    "hue",
+    "saturation",
+    "color",
+    "luminosity"
+];
 
 /* Hand Definitions */
-let hourHandColour1
-let hourHandColour2
-let hourHandExtent
-let minuteHandColour1
-let minuteHandColour2
-let minuteHandExtent
+let hourHandColour1;
+let hourHandColour2;
+let hourHandExtent;
+let minuteHandColour1;
+let minuteHandColour2;
+let minuteHandExtent;
 
 /* Defaults */ 
 let clockStyleDefaults = {
@@ -38,7 +60,7 @@ let clockStyleDefaults = {
     minuteHandColour2: colours[0],
     hourHandExtent: 1,
     minuteHandExtent: 1,
-}
+};
 
 const handColourGrps = [
     hourHandColour1Grp, 
@@ -84,20 +106,20 @@ const resetControls = () => {
 const resetControlsButton = document.getElementById("reset-controls");
 resetControlsButton.addEventListener("click", resetControls);
 
-
-
 /* set up colour buttons */
-handColourGrps.forEach(hand => {
-    colours.forEach(colour => {
-        const id = `${hand.id}-${colour}`
-        console.log(hand.id);
-        hand.innerHTML += `
-            <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}', '${id}')"></button>    
-        `
+const setupColourButtons = () => {
+    handColourGrps.forEach(hand => {
+        colours.forEach(colour => {
+            const id = `${hand.id}-${colour}`
+            console.log(hand.id);
+            hand.innerHTML += `
+                <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}', '${id}')"></button>    
+            `
 
-        document.getElementById(id).style.backgroundColor = colour;
-    })
-});
+            document.getElementById(id).style.backgroundColor = colour;
+        })
+    });
+}
 
 
 /* change colours by clicking on buttons */
@@ -131,6 +153,26 @@ function setHandColours (hand, colour, btnId) {
     updateClockGradients();
 }
 
+function updateAllHandColours() {
+    // Update all elements with the "hour hand" class
+    const hourHands = document.querySelectorAll('.hour.hand');
+    hourHands.forEach(hand => {
+        hand.style.backgroundImage = `conic-gradient(
+            ${hourHandColour1} ${hourHandExtent}%,
+            ${hourHandColour2}
+        )`;
+    });
+
+    // Update all elements with the "minute hand" class
+    const minuteHands = document.querySelectorAll('.minute.hand');
+    minuteHands.forEach(hand => {
+        hand.style.backgroundImage = `conic-gradient(
+            ${minuteHandColour1} ${minuteHandExtent}%,
+            ${minuteHandColour2}
+        )`;
+    });
+}
+
 /* update clock gradients when colours change */
 function updateClockGradients () {
 
@@ -144,6 +186,8 @@ function updateClockGradients () {
         ${minuteHandColour2}
     )
     `
+
+    updateAllHandColours();
 }
 
 /* Extents */
@@ -161,18 +205,46 @@ function updateExtents () {
 }
 
 /* Color Blend Mode */ 
+const blendModeButtonGrp = document.getElementById("color-blend-mode");
 
-const blendModeSelect = document.getElementById("color-blend-mode");
-blendModeSelect.addEventListener("change", updateBlendMode);
+const setupColourBlendButtons = () => {
+    colorBlendModes.forEach(blendMode => {
+        const id = `colour-blend-mode-${blendMode}`
+        console.log(blendMode);
+        blendModeButtonGrp.innerHTML += `
+            <button id="${id}" onclick="updateBlendMode('${blendMode}')">
+                <div id="${blendMode}-clock-face" class="blend-button controls-button  clock-face">
+                    <div id="${blendMode}-hour-hand" class="blend-button hour hand"></div>
+                    <div id="${blendMode}-minute-hand" class="blend-button minute hand"></div>
+                </div>
+            </option>
+        `;
 
-function updateBlendMode () {
-    const blendMode = blendModeSelect.value;
+        let buttonClockFace = document.getElementById(`${blendMode}-clock-face`);
+        let buttonMinuteHand = document.getElementById(`${blendMode}-minute-hand`);
+        let buttonHourHand = document.getElementById(`${blendMode}-hour-hand`);
+    
+        buttonMinuteHand.style.mixBlendMode = blendMode;
+        buttonHourHand.style.mixBlendMode = blendMode;
+        
+    });
 
+
+}
+
+function updateBlendMode (blendMode) {
     minuteHand.style.mixBlendMode = blendMode;
 
     console.log(blendMode);
 }
 
+/* Functions needed to be accessible globally */
+window.setHandColours = setHandColours;
+window.updateBlendMode = updateBlendMode;
+
 /* Initialisation */
-resetControls()
-updateClockGradients()
+setupColourButtons();
+setupColourBlendButtons();
+resetControls();
+updateClockGradients();
+

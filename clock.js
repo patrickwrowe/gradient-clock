@@ -1,8 +1,8 @@
 // Author: Patrick Rowe
 
-const hourHand = document.getElementById('hour-hand');
-const minuteHand = document.getElementById('minute-hand');
-const secondHand = document.getElementById('second-hand');
+export const hourHand = document.getElementById('hour-hand');
+export const minuteHand = document.getElementById('minute-hand');
+export const secondHand = document.getElementById('second-hand');
 
 function getTime() {
     const now = new Date();
@@ -37,5 +37,28 @@ function rotateHands() {
     secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
     }
 
-setInterval(rotateHands, 500);
+function rotateAllHands() {
+    const [hours, minutes, seconds] = getTime();
+    const [hoursDegrees, minutesDegrees, secondsDegrees] = convertTimeToAngle(hours, minutes, seconds);
 
+    // Rotate all elements with the "hour hand" class
+    const hourHands = document.querySelectorAll('.hour.hand');
+    hourHands.forEach(hand => {
+        hand.style.transform = `rotate(${hoursDegrees}deg)`;
+    });
+
+    // Rotate all elements with the "minute hand" class
+    const minuteHands = document.querySelectorAll('.minute.hand');
+    minuteHands.forEach(hand => {
+        hand.style.transform = `rotate(${minutesDegrees}deg)`;
+    });
+
+    // Rotate all elements with the "second hand" class (if needed)
+    const secondHands = document.querySelectorAll('.second.hand');
+    secondHands.forEach(hand => {
+        hand.style.transform = `rotate(${secondsDegrees}deg)`;
+    });
+}
+
+setInterval(rotateHands, 500);
+setInterval(rotateAllHands, 500);

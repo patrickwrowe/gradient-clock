@@ -134,3 +134,20 @@
         transition: 0.3s;
     }
 }
+
+.blend-button {
+    position: relative;
+    border-radius: 100%;
+    top:  -1px !important;
+    left: -1px !important;
+    margin: 0px !important;
+    padding: 0px !important; 
+    
+}
+
+.blend-button .hour,
+.blend-button .minute {
+    position: absolute;
+    border: 1px solid white;
+}
+
