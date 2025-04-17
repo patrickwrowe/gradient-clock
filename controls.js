@@ -225,7 +225,8 @@ const setupColourBlendButtons = () => {
         let buttonHourHand = document.getElementById(`${blendMode}-hour-hand`);
     
         buttonMinuteHand.style.mixBlendMode = blendMode;
-        buttonHourHand.style.mixBlendMode = blendMode;
+        // buttonHourHand.style.mixBlendMode = blendMode;
+        buttonClockFace.style.backgroundColor = "white";
         
     });
 
