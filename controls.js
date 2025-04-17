@@ -213,9 +213,10 @@ const setupColourBlendButtons = () => {
         console.log(blendMode);
         blendModeButtonGrp.innerHTML += `
             <button id="${id}" onclick="updateBlendMode('${blendMode}')">
-                <div id="${blendMode}-clock-face" class="blend-button controls-button  clock-face">
+                <div id="${blendMode}-clock-face" class="blend-button controls-button clock-face">
                     <div id="${blendMode}-hour-hand" class="blend-button hour hand"></div>
                     <div id="${blendMode}-minute-hand" class="blend-button minute hand"></div>
+                    <div id="cap" class="cap"></div>
                 </div>
             </option>
         `;
