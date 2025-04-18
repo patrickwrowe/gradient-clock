@@ -17,7 +17,7 @@
 label {
     text-shadow: 1px 0 1px #555, 0 -1px 1px #555, 0 1px 1px #555, -1px 0 1px #555;
     margin-left: 25px;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .controls {
@@ -50,21 +50,24 @@ label {
     outline: 1px solid white; 
     transform: rotate(270deg);
     border-radius: 100%;
+    display: block;
 
     &::-webkit-slider-thumb {
         -webkit-appearance: none; /* Override default look */
         appearance: hidden;
         width: 0px;
-        height: px; 
+        height: 0px; 
         background: transparent; 
+        border: transparent;
         cursor: pointer; 
     }
 
     &::-moz-range-thumb {
-        width: 1px; 
-        height: 1px; 
+        width: 0px; 
+        height: 0px; 
         background: transparent; 
         cursor: pointer; 
+        border: transparent;
     }
 }
 
