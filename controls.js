@@ -55,10 +55,10 @@ let minuteHandExtent;
 /* Defaults */ 
 let clockStyleDefaults = {
     hourHandColour1: colours[1],
-    hourHandColour2: colours[0],
+    hourHandColour2: colours[2],
     minuteHandColour1: colours[0],
     minuteHandColour2: colours[2],
-    hourHandExtent: 50,
+    hourHandExtent: 40,
     minuteHandExtent: 10,
 };
 
@@ -112,11 +112,20 @@ const setupColourButtons = () => {
         colours.forEach(colour => {
             const id = `${hand.id}-${colour}`
             console.log(hand.id);
+
             hand.innerHTML += `
                 <button class="colour-button" id="${id}" onclick="setHandColours('${hand.id}', '${colour}', '${id}')"></button>    
             `
-
-            document.getElementById(id).style.backgroundColor = colour;
+            
+            if (colour === "transparent") {
+                console.log("Setting transparentimage");
+                document.getElementById(id).style.backgroundImage = "url('img/transparent-checkerboard.png')";
+                document.getElementById(id).style.backgroundSize = "cover";
+                document.getElementById(id).style.backgroundRepeat = "no-repeat";
+                document.getElementById(id).style.backgroundPosition = "center";
+            } else {
+                document.getElementById(id).style.backgroundColor = colour;
+            }
         })
     });
 }
@@ -186,6 +195,9 @@ function updateClockGradients () {
         ${minuteHandColour2}
     )
     `
+
+    console.log("Minuehandextendt", minuteHandExtent);
+    console.log("Hourhandextendt", hourHandExtent);
 
     updateAllHandColours();
 }

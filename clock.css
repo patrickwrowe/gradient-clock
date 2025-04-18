@@ -106,6 +106,7 @@ body {
 .clock-face {
     height: var(--clock-face-diameter);
     width: var(--clock-face-diameter);
+
     border-radius: 100%;
     position: relative;
     top: 12.5px;
@@ -137,22 +138,6 @@ body {
     transition-duration: 1s;
 }
 
-/* for minute as a hand */
-/* .minute {
-    top: 0;
-    left: 50%;
-    position: absolute;
-    height: var(--clock-face-radius);
-    width: 3px;
-    border-radius: 2px;
-
-    background-color: var(--dark-grey);
-
-    transform-origin: bottom;
-    transform: rotate(  
-        var(--minute-rotate-deg)
-    );
-} */
 
 /* for second as a hand */
 .second {
