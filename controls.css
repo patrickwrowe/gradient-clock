@@ -215,3 +215,72 @@ label {
     border: 1px solid white;
 }
 
+
+@media (max-width: 768px) {
+    .controls {
+        width: 100vw; /* Take up the full width of the screen */
+        height: 100vh; /* Take up the full height of the screen */
+        padding: 10px; /* Add some padding for better spacing */
+        left: 0;
+        top: 0;
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+        z-index: 1000; /* Ensure it appears above other elements */
+    }
+
+    .controls-container {
+        width: 90vw; /* Reduce width slightly for padding */
+        margin: 0 auto; /* Center the container */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align items */
+        justify-content: flex-start; /* Start items from the top */
+    }
+
+    label {
+        font-size: var(--font-size-small); /* Reduce font size for smaller screens */
+        margin: 5px 0; /* Adjust margins for better spacing */
+    }
+
+    :root {
+        --button-size: 30px;
+        --slider-size: 40px;
+    }
+
+    .button-grp button {
+        margin: 3px; /* Adjust spacing between buttons */
+    }
+
+    .controls-header {
+        font-size: var(--font-size-medium); /* Adjust header font size */
+        text-align: center; /* Center align headers */
+    }
+
+    .controls-button {
+        height: 30px; /* Adjust button size */
+        width: 30px;
+    }
+}
+
+/* Additional styles for very small screens (e.g., iPhone SE) */
+@media (max-width: 375px) {
+    :root {
+        --button-size: 25px;
+        --slider-size: 35px;
+    }
+
+    .controls {
+        padding: 5px; /* Reduce padding for very small screens */
+    }
+
+    .controls-container {
+        width: 95vw;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    .controls-header {
+        font-size: 1rem; /* Reduce header font size */
+    }
+}
