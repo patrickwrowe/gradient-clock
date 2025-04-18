@@ -101,6 +101,7 @@ const resetControls = () => {
     minuteHandExtentSlider.value = minuteHandExtent;
 
     updateClockGradients();
+    updateExtents();
 }
 
 const resetControlsButton = document.getElementById("reset-controls");
