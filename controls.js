@@ -56,10 +56,10 @@ let minuteHandExtent;
 let clockStyleDefaults = {
     hourHandColour1: colours[1],
     hourHandColour2: colours[0],
-    minuteHandColour1: colours[1],
-    minuteHandColour2: colours[0],
-    hourHandExtent: 1,
-    minuteHandExtent: 1,
+    minuteHandColour1: colours[0],
+    minuteHandColour2: colours[2],
+    hourHandExtent: 50,
+    minuteHandExtent: 10,
 };
 
 const handColourGrps = [
@@ -217,6 +217,9 @@ const setupColourBlendButtons = () => {
                     <div id="${blendMode}-hour-hand" class="blend-button hour hand"></div>
                     <div id="${blendMode}-minute-hand" class="blend-button minute hand"></div>
                     <div id="cap" class="cap"></div>
+                    <div id="${blendMode}-tooltip", class="tooltip">
+                        ${blendMode}
+                    </div>
                 </div>
             </option>
         `;
@@ -249,4 +252,5 @@ setupColourButtons();
 setupColourBlendButtons();
 resetControls();
 updateClockGradients();
+updateExtents();
 
