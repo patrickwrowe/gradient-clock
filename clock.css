@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
+
 }
 
 :root {
@@ -37,6 +38,10 @@
   --minute-hand-color-1: var(--dark-grey);
   --minute-hand-color-2: transparent;
   --minute-hand-extent: 20%;
+}
+
+html {
+    overflow: hidden;
 }
 
 body {
