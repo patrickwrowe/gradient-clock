@@ -14,6 +14,14 @@
     --white: #ffffff;
     --button-size: 40px;
     --slider-size: 75px;
+
+    --font-size-small: 1rem;
+    --font-size-medium: 1.25rem;
+    --font-size-large: 1.5rem;
+
+    --spacing-small: 10px;
+    --spacing-medium: 15px;
+    --spacing-large: 20px;
 }
 
 html {
@@ -24,21 +32,24 @@ label {
     text-shadow: 1px 0 1px #555, 0 -1px 1px #555, 0 1px 1px #555, -1px 0 1px #555;
     font-size: 1.25rem;
 
-    margin-left: 25px;
-    margin-bottom: 5px;
-    margin-top: 10px;
+    font-size: var(--font-size-medium);
+    margin-left: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
+    margin-top: var(--spacing-small);
+
+    padding: var(--spacing-medium) 100px var(--spacing-medium) 100px;
+
 }
 
 
 .controls-header {
     text-shadow: 1px 0 1px #555, 0 -1px 1px #555, 0 1px 1px #555, -1px 0 1px #555;
 
-    &::before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 25px;
-    }
+    font-size: var(--font-size-large);
+    margin-bottom: var(--spacing-medium);
+
+    padding: var(--spacing-medium);
+
 }
 
 .controls {
@@ -52,14 +63,12 @@ label {
 
 .controls-container {
     margin: 5px;
-    width: 75vw;
-}
+    width: 50vw;
 
-.extents-container {
     display: flex;
-    flex-direction: row;
-    width: 400px;
-    margin: 0px;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
 }
 
 /* The slider itself */
@@ -76,6 +85,11 @@ label {
 
     border-radius: 100%;
     display: block;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+
 
     &::-webkit-slider-thumb {
         -webkit-appearance: none; /* Override default look */
@@ -96,6 +110,12 @@ label {
     }
 }
 
+.slider-container {
+    position: relative;
+    top: 5px;
+    left: 175px;
+}
+
 .button-grp button {
     color: white; /* White text */
     height: var(--button-size);
@@ -114,10 +134,11 @@ label {
     content: "";
     clear: both;
     display: table;
+    padding-bottom: 5px;
 }
 
 .button-grp:last-of-type {
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
   
   /* Add a background color on hover */
