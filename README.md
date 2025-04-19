@@ -10,10 +10,11 @@ Gradient Clock is a visually appealing clock that displays the current time with
 
 ## Features
 
+![Features and Controls](<img/controls-screenshot.png>)
+
 - **Client-Side Time**: The clock displays the current time based on the client's local time.
-- **Customizable Gradients**: Users can select colors for the hour and minute hands, and control the gradient extent.
-- **Full-Screen Mode**: The clock can be displayed in full-screen mode for a more immersive experience.
-- **Color Selection**: A grid of tiles allows users to choose from a preselected set of colors.
+- **Customizable Gradients**: Users can select leading and trailing colours for the hour and minute hands, and control the gradient extents. Gradient extent sliders are represented by miniature versions of the clock hands.
+- **Color Selection**: A list of tiles allows users to choose from a preselected set of colors. Addition of further colours is straightforward.
 - **Minute Hand Width Control**: Users can adjust the width of the minute hand.
 - **Gradient Extent Control**: Users can control the extent of the gradient on both the hour and minute hands.
 - **Color Blending**: Smooth color transitions between minutes and hours.
@@ -23,13 +24,21 @@ Gradient Clock is a visually appealing clock that displays the current time with
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/gradient-clock.git
+    git clone https://github.com/patrickwrowe/gradient-clock.git
     ```
 2. Navigate to the project directory:
     ```bash
     cd gradient-clock
     ```
-3. Open `index.html` in your preferred web browser.
+3. Install the required dependencies:
+    ```bash
+    npm install
+    ```
+4. Install `live-server` globally if you haven't already:
+    ```bash
+    npm install -g live-server
+    ```
+3. run `live-server` in the project directory to view the clock in your browser.     
 
 ## Usage
 
