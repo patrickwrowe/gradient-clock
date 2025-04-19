@@ -103,6 +103,13 @@ label {
         cursor: pointer; 
         border: transparent;
     }
+
+    &:hover {
+        cursor: pointer; 
+    }
+    &:active {
+        cursor: pointer; 
+    }
 }
 
 .slider-container {
