@@ -81,7 +81,6 @@ function toggleControls() {
     const controls = document.getElementById("controls");
     controls.classList.toggle("hidden");
     controlsButton.classList.toggle("hidden");
-
 }
 
 controlsButtonClose.addEventListener("click", toggleControls);

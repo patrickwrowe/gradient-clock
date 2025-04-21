@@ -39,7 +39,7 @@ label {
     margin-bottom: var(--spacing-small);
     margin-top: var(--spacing-small);
 
-    padding: var(--spacing-medium) 100px var(--spacing-medium) 100px;
+    /* padding: var(--spacing-medium) 100px var(--spacing-medium) 100px; */
 }
 
 
@@ -56,6 +56,12 @@ label {
     left: 0;
     padding-left: 15px;
     padding-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    z-index: 0;
 }
 
 .controls-container {
@@ -65,7 +71,7 @@ label {
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: center;
+    justify-content: left;
 }
 
 /* The slider itself */
@@ -82,6 +88,8 @@ label {
 
     border-radius: 100%;
     display: block;
+
+    z-index: 1000;
 
     padding: 0 !important;
     margin: 0 !important;
@@ -106,6 +114,8 @@ label {
 
     &:hover {
         cursor: pointer; 
+        transform: scale(1.1);
+        transition: 0.3s;
     }
     &:active {
         cursor: pointer; 
@@ -114,8 +124,15 @@ label {
 
 .slider-container {
     position: relative;
-    top: 5px;
-    left: 175px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+.button-grp {
+    z-index: 1000;
 }
 
 .button-grp button {
@@ -129,6 +146,8 @@ label {
     border-radius: 100pc;
     margin: 5px;
     transition: 0.5s;
+
+    z-index: 1000;
   }
   
   /* Clear floats (clearfix hack) */
@@ -158,6 +177,7 @@ label {
     display: none;
 }
 
+
 .controls-button-container {
     position: absolute;
     height: 100vh;
@@ -166,10 +186,20 @@ label {
     padding: 15px;
     margin: 10px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+
     &:hover {
         cursor: pointer;
     }
 
+}
+
+#controls-button-container-close {
+    position: absolute;
+    z-index: 500; /* Lower z-index to ensure it doesn't overlap the color buttons */
 }
 
 .controls-button {
@@ -181,6 +211,8 @@ label {
     border: 1px solid white;
     margin: 5px;
     transition: 0.5s;
+
+    z-index: 1000;
 
     &:hover {
         transform: scale(1.1);
@@ -196,6 +228,12 @@ label {
     margin: 0px !important;
     padding: 0px !important; 
     
+    z-index: 1000;
+}
+
+.colour-button {
+    position: relative;
+    z-index: 1000;
 }
 
 .cap {
@@ -209,6 +247,8 @@ label {
     padding: 0px !important; 
     background-color: transparent;
     border: 1px solid white;
+
+    z-index: 1000;
 }
 
 .blend-button .hour,
@@ -279,16 +319,6 @@ label {
 
     .button-grp button {
         margin: 3px; /* Adjust spacing between buttons */
-    }
-
-    .controls-header {
-        font-size: var(--font-size-medium); /* Adjust header font size */
-        text-align: center; /* Center align headers */
-    }
-
-    .controls-button {
-        height: 30px; /* Adjust button size */
-        width: 30px;
     }
 }
 
