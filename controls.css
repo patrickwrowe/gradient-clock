@@ -218,12 +218,13 @@ label {
 }
 
 .tooltip {
-    position: absolute;
     text-shadow: 1px 0 1px #555, 0 -1px 1px #555, 0 1px 1px #555, -1px 0 1px #555;
     padding: 5px;
-    border-radius: 5px;
     font-size: 0.75rem;
     z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     visibility: hidden;
 }
 
@@ -236,10 +237,8 @@ label {
     .controls {
         width: 100vw; /* Take up the full width of the screen */
         height: 100vh; /* Take up the full height of the screen */
-        padding: 10px; /* Add some padding for better spacing */
         left: 0;
         top: 0;
-        overflow-y: auto; /* Enable vertical scrolling if needed */
         z-index: 1000; /* Ensure it appears above other elements */
     }
 
@@ -256,7 +255,6 @@ label {
         padding: 10px; /* Add some padding for better spacing */
         left: 0;
         top: 0;
-        overflow-y: auto; /* Enable vertical scrolling if needed */
         z-index: 1000; /* Ensure it appears above other elements */
     }
 
