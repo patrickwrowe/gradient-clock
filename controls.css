@@ -59,9 +59,11 @@ label {
 
     display: flex;
     flex-direction: column;
-    align-items: left;
-    justify-content: left;
     z-index: 0;
+}
+
+.controls-block {
+    margin: 25px;
 }
 
 .controls-container {
@@ -71,7 +73,10 @@ label {
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: left;
+    justify-items: left;
+    justify-content: space-between;
+
+    height: 100%;
 }
 
 /* The slider itself */
@@ -129,10 +134,16 @@ label {
     flex-direction: column;
     align-items: left;
     justify-content: left;
+
+    margin: 5px;
+    padding: 5px;
+    padding-left: 10px;
+
 }
 
 .button-grp {
     z-index: 1000;
+    padding-left: 10px;
 }
 
 .button-grp button {
@@ -142,7 +153,7 @@ label {
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
     border: 1px solid white; /* Gray border */
-    background-color: transparent;
+    background-color: white;
     border-radius: 100pc;
     margin: 5px;
     transition: 0.5s;
@@ -203,6 +214,9 @@ label {
 }
 
 .controls-button {
+    position: relative;
+    top: 0px;
+    left: 0px;
     height: var(--button-size);
     width: var(--button-size);
     cursor: pointer; /* Pointer/hand icon */
@@ -220,15 +234,44 @@ label {
     }
 }
 
+.blend-button.controls-button {
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+ 
 .blend-button {
     position: relative;
-    border-radius: 100%;
-    top:  -1px !important;
+    top: 0px !important;
+    left: 0px !important;
+
+    border: 1px solid transparent;
+    z-index: 1000;
+
+}
+
+.blend-button.controls-button.clock-face {
+    position: relative;
+    top: -1px !important;
+    left: -1px !important;
+    margin: 0px;
+    padding: 0px;
+
+    border: 1px solid transparent;
+}
+
+.blend-button.hour, .blend-button.minute {
+    position: relative;
+    top: -1px !important;
     left: -1px !important;
     margin: 0px !important;
-    padding: 0px !important; 
-    
-    z-index: 1000;
+    padding: 0px   !important;
+}
+
+.blend-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .colour-button {
@@ -258,44 +301,69 @@ label {
 }
 
 .tooltip {
+    position: relative;
     text-shadow: 1px 0 1px #555, 0 -1px 1px #555, 0 1px 1px #555, -1px 0 1px #555;
-    padding: 5px;
-    font-size: 0.75rem;
-    z-index: 1000;
-    display: flex;
+    font-size: 1rem;
+
+    padding-top: 2px;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     visibility: hidden;
+    text-align: center;
 }
 
 .blend-button:hover .tooltip {
     visibility: visible; /* Show the tooltip */
-    opacity: 1; /* Make it fully visible */
+    z-index: 1000;
 }
+
+
+/* Absolute positioning of hour hand  controls at top, minute in middle and blend at bottom */
+/* #hour-hand-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#minute-hand-controls {
+    position: absolute;
+    top: 45%;
+    left: 20px;
+}
+
+#blending-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+} */
+
+/* Responsive styles */
 
 @media (max-width: 1200px) {
     .controls {
-        width: 100vw; /* Take up the full width of the screen */
-        height: 100vh; /* Take up the full height of the screen */
+        width: 100vw; 
+        height: 100vh; 
         left: 0;
         top: 0;
-        z-index: 1000; /* Ensure it appears above other elements */
     }
 
     .controls-container {
-        width: 90vw; /* Reduce width slightly for padding */
-        margin: 0 auto; /* Center the container */
+        width: 90vw;
+        margin: 0 auto; 
     }
 }
 
 @media (max-width: 768px) {
     .controls {
-        width: 100vw; /* Take up the full width of the screen */
-        height: 100vh; /* Take up the full height of the screen */
-        padding: 10px; /* Add some padding for better spacing */
+        width: 100vw; 
+        height: 100vh; 
+        padding: 10px; 
         left: 0;
         top: 0;
-        z-index: 1000; /* Ensure it appears above other elements */
+        z-index: 1000; 
     }
 
     .controls-container {
@@ -309,7 +377,7 @@ label {
 
     label {
         font-size: var(--font-size-small); /* Reduce font size for smaller screens */
-        margin: 5px 0; /* Adjust margins for better spacing */
+        margin: 5px 0; 
     }
 
     :root {
@@ -318,15 +386,15 @@ label {
     }
 
     .button-grp button {
-        margin: 3px; /* Adjust spacing between buttons */
+        margin: 3px; 
     }
 }
 
 /* Additional styles for very small screens (e.g., iPhone SE) */
 @media (max-width: 375px) {
     :root {
-        --button-size: 25px;
-        --slider-size: 35px;
+        --button-size: 20px;
+        --slider-size: 30px;
     }
 
     .controls {

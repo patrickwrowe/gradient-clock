@@ -73,7 +73,7 @@ const handColourGrps = [
 
 
 const controlsButton = document.getElementById("controls-button-container");
-const controlsButtonClose = document.getElementById("controls");
+const controlsButtonClose = document.getElementById("controls-button-container-close");
 
 
 function toggleControls() {
@@ -129,7 +129,7 @@ const setupColourButtons = () => {
             
             if (colour === "transparent") {
                 document.getElementById(id).style.backgroundImage = "url('img/transparent-checkerboard.png')";
-                document.getElementById(id).style.backgroundSize = "cover";
+                document.getElementById(id).style.backgroundSize = "200%";
                 document.getElementById(id).style.backgroundRepeat = "no-repeat";
                 document.getElementById(id).style.backgroundPosition = "center";
             } else {
@@ -233,17 +233,22 @@ const setupColourBlendButtons = () => {
         const id = `colour-blend-mode-${blendMode}`
         console.log(blendMode);
         blendModeButtonGrp.innerHTML += `
-            <button id="${id}" onclick="updateBlendMode('${blendMode}')">
-                <div id="${blendMode}-clock-face" class="blend-button controls-button clock-face">
+            <button id="${id}" class="blend-button controls-button" onclick="updateBlendMode('${blendMode}')">
+                <div id="${blendMode}-clock-face" class="blend-button controls-button clock-face"</div>
                     <div id="${blendMode}-hour-hand" class="blend-button hour hand"></div>
                     <div id="${blendMode}-minute-hand" class="blend-button minute hand"></div>
-                    <div id="cap" class="cap"></div>
-                    <div id="${blendMode}-tooltip", class="tooltip">
+                    <div id="${blendMode}-cap" class="cap"></div>
+                </div> 
+                <div id="${blendMode}-tooltip", class="tooltip">
                         ${blendMode}
-                    </div>
                 </div>
-            </option>
-        `;
+            </button>
+            `
+                ;
+
+        if (blendMode === "normal") {
+            document.getElementById(`${blendMode}-tooltip`).innerText = "No Blend";
+        }
 
         let buttonClockFace = document.getElementById(`${blendMode}-clock-face`);
         let buttonMinuteHand = document.getElementById(`${blendMode}-minute-hand`);
@@ -260,6 +265,16 @@ const setupColourBlendButtons = () => {
 
 function updateBlendMode (blendMode) {
     minuteHand.style.mixBlendMode = blendMode;
+
+    // add the seleceted class to the selected button
+    const blendModeButtons = document.querySelectorAll(`.blend-button`);
+    blendModeButtons.forEach(button => {
+        button.classList.remove("btn-selected");
+    });
+
+
+    const btn = document.getElementById(`colour-blend-mode-${blendMode}`);
+    btn.classList.add("btn-selected");
 }
 
 /* Functions needed to be accessible globally */
