@@ -287,4 +287,5 @@ setupColourBlendButtons();
 resetControls();
 updateClockGradients();
 updateExtents();
+updateBlendMode("hard-light");
 

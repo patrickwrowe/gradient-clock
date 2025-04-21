@@ -153,7 +153,7 @@ label {
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
     border: 1px solid white; /* Gray border */
-    background-color: white;
+    background-color: transparent;
     border-radius: 100pc;
     margin: 5px;
     transition: 0.5s;
