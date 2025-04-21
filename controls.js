@@ -70,8 +70,11 @@ const handColourGrps = [
 ];
 
 /* Opening and closing of controls */
+
+
 const controlsButton = document.getElementById("controls-button-container");
-controlsButton.addEventListener("click", toggleControls);
+const controlsButtonClose = document.getElementById("controls");
+
 
 function toggleControls() {
     console.log("toggle controls");
@@ -81,11 +84,16 @@ function toggleControls() {
 
 }
 
+controlsButtonClose.addEventListener("click", toggleControls);
+controlsButton.addEventListener("click", toggleControls);
+
+/* 
 const closeControlsButton = document.getElementById("close-controls");
 closeControlsButton.addEventListener("click", toggleControls);
-
+*/
 
 /* Reset controls */
+
 
 const resetControls = () => {
     console.log("reset controls");
@@ -104,8 +112,10 @@ const resetControls = () => {
     updateExtents();
 }
 
+/*
 const resetControlsButton = document.getElementById("reset-controls");
 resetControlsButton.addEventListener("click", resetControls);
+*/
 
 /* set up colour buttons */
 const setupColourButtons = () => {
@@ -119,7 +129,6 @@ const setupColourButtons = () => {
             `
             
             if (colour === "transparent") {
-                console.log("Setting transparentimage");
                 document.getElementById(id).style.backgroundImage = "url('img/transparent-checkerboard.png')";
                 document.getElementById(id).style.backgroundSize = "cover";
                 document.getElementById(id).style.backgroundRepeat = "no-repeat";
@@ -252,8 +261,6 @@ const setupColourBlendButtons = () => {
 
 function updateBlendMode (blendMode) {
     minuteHand.style.mixBlendMode = blendMode;
-
-    console.log(blendMode);
 }
 
 /* Functions needed to be accessible globally */
