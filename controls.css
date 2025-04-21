@@ -321,6 +321,10 @@ label {
 }
 
 
+#blending-controls {
+    margin-top: 100px;
+}
+
 /* Absolute positioning of hour hand  controls at top, minute in middle and blend at bottom */
 /* #hour-hand-controls {
     position: absolute;
@@ -342,7 +346,14 @@ label {
 
 /* Responsive styles */
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
+    .controls-container {
+        width: 90vw; 
+        margin: 0 auto; 
+    }
+}
+
+@media (max-height: 850px ) {
     .controls {
         width: 100vw; 
         height: 100vh; 
@@ -354,9 +365,17 @@ label {
         width: 90vw;
         margin: 0 auto; 
     }
+
+    #blending-controls {
+        margin-top: 50px; 
+    }
+
+    .controls-block {
+        margin: 10px; 
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .controls {
         width: 100vw; 
         height: 100vh; 
